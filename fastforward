@@ -1,0 +1,41 @@
+#!/bin/bash
+if [ -z $2 ] && [ $1 != 'reclone' ]; then
+	echo 'WARNING: No second parameter (branch). Errors may occur.'
+fi
+if [ -z $1 ]; then
+	echo -e 'Options of fastforward script :\n
+		- reclone : reclone the origin repository (or other) in the actual repertory.\n
+			fasforwards reclone <origin repository (or other)>\n
+		- forcepush : push force your changes in the repository.\n
+			fastforwards forcepush <branch>\n
+		- pull : pull the origin repository.\n
+			fastforwards pull [branch]\n
+		- pullandpush : Recommanded option. Pull the origin repository and push the result.\n
+			fastforwards pullandpush [branch]\n
+		- fetch : fetch the origin repository.\n
+			fastforwards fetch [branch]'
+elif [ $1 = 'reclone' ]; then
+	git clone $2 `pwd`
+elif [ $1 = 'forcepush' ]; then
+	git push origin "+$2"
+elif [ $1 = 'pull' ]; then
+	git pull origin $2
+elif [ $1 = 'pullandpush' ]; then
+	git pull origin $2
+	git push origin $2
+elif [ $1 = 'fetch' ]; then
+	git fetch origin $2
+else
+	echo -e 'Non valid first option.\n
+		Options of fastforward script :\n
+		- reclone : reclone the origin repository (or other) in the actual repertory.\n
+			fasforwards reclone <origin repository (or other)>\n
+		- forcepush : push force your changes in the repository.\n
+			fastforwards forcepush <branch>\n
+		- pull : pull the origin repository.\n
+			fastforwards pull [branch]\n
+		- pullandpush : Recommanded option. Pull the origin repository and push the result.\n
+			fastforwards pullandpush [branch]\n
+		- fetch : fetch the origin repository.\n
+			fastforwards fetch [branch]'
+fi

@@ -1,0 +1,10 @@
+#/bin/bash
+if [ -z $1 ]; then
+	echo 'You must give the adress of repository in first parameter.'
+else
+	git init
+	git remote add origin $1
+	git add .
+	git commit -m 'first commit'
+	git push origin master
+fi
