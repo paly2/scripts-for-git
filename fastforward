@@ -19,12 +19,12 @@ elif [ $1 = 'reclone' ]; then
 elif [ $1 = 'forcepush' ]; then
 	git push origin "+$2"
 elif [ $1 = 'pull' ]; then
-	git pull origin $2
+	git pull
 elif [ $1 = 'pullandpush' ]; then
-	git pull origin $2
-	git push origin $2
+	git pull
+	git push
 elif [ $1 = 'fetch' ]; then
-	git fetch origin $2
+	git fetch -a
 else
 	echo -e 'Non valid first option.\n
 		Options of fastforward script :\n
