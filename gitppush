@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ -z $1 ]; then
+	echo 'You must give the commit message in first parameter.'
+else
+	git pull
+	git add $PWD
+	git commit -m "$1"
+	if [ -z $2 ]; then
+		git push origin master
+	else
+		git push origin $2
+	fi
+fi

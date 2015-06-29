@@ -1,4 +1,4 @@
 #!/bin/bash
-chmod +x gitcreate gitpush fastforward gitupdate
-cp gitcreate gitpush fastforward gitupdate /usr/bin
+chmod +x gitcreate gitpush fastforward gitupdate gitppush
+cp gitcreate gitpush fastforward gitupdate gitppush /usr/bin
 echo 'Done.'

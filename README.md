@@ -2,15 +2,23 @@
 
 ### 1. `gitcreate`
 
-You can use it to make the first push to another repository. It add origin, it add files to .git, it commit and it push.
-`gitcreate <adress of other repository>`  
+You can use it to create a repository. You can create a local repository with another repository (for example in GitHub) if you give its adress.  
+If you give an adress, you can push with the `push` option.  
+You can also create a void repository in a new folder with the `new` option.  
+`gitcreate [new <name of the new folder>] [<adress of other repository> [push]]`
 
 ### 2. `gitpush`
 
-You can use it to make other push to the origin repository. It add files to .git, it commit and it push.
-`gitpush <commit message> [branch, default master]`  
+You can use it to make other push to the origin repository. It add files to .git, it commit and it push.  
+`gitpush <commit message> [branch, default master]`
 
-### 3. `fastforward`
+### 3. `gitppush`
+
+It is similar of gitpush, but it avoids non-fast-forwards with a pull before the push.  
+It is recommanded if there are several contributors in your repository.  
+`gitppush <commit message> [branch, default master]`
+
+### 4. `fastforward`
 
 You can use it to solve conflicts (non-fast-forward).
 You can solve with some options :
@@ -25,12 +33,12 @@ You can solve with some options :
 * fetch : fetch the origin repository.  
 	`fastforwards fetch`  
 
-### 4. `gitupdate` (by Calinou)
+### 5. `gitupdate` (by Calinou)
 
 You can use it to update all git repositories in a directory.  
 `gitupdate`
 
-### 5. `install_git_scripts.sh`
+### 6. `install_git_scripts.sh`
 
 Just a script to install other scripts :p  
 

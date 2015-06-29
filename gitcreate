@@ -1,10 +1,22 @@
 #/bin/bash
-if [ -z $1 ]; then
-	echo 'You must give the adress of repository in first parameter.'
-else
+if [ -n $1 ]; then
+	if [ $1 = 'new' ]; then
+		mkdir "$2"
+		cd "$2"
+		git init
+		test -n "$3" || exit
+		shift
+		shift
+	fi
 	git init
-	git remote add origin $1
 	git add $PWD
 	git commit -m 'first commit'
-	git push origin master
+	git remote add origin $1
+	if [ $2 = 'push' ]; then
+		git push origin master
+	fi
+else
+	git init
+	git add $PWD
+	git commit -m 'first commit'
 fi
