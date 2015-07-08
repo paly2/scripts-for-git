@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ -z $1 ]; then
+	echo "You must give the name of the new branch in first parameter."
+else
+	git checkout master && git branch -D $1 && git pull upstream master -q && git checkout -b $1 && git diff
+	if [ -z $2 && $? = 0 ]; then 
+		git add $PWD && git commit -m $2 && git push origin $1
+	fi
+fi

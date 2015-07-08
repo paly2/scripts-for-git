@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -z $1 ]; then
+	echo "You must give the name of the branch in the first parameter."
+else
+	git checkout $1 && git rebase master
+fi

@@ -8,15 +8,14 @@ if [ -n $1 ]; then
 		shift
 		shift
 	fi
-	git init
-	git add $PWD
-	git commit -m 'first commit'
-	git remote add origin $1
+	git init && git add $PWD && git commit -m 'first commit' && git remote add origin $1
 	if [ $2 = 'push' ]; then
 		git push origin master
+		shift
+	fi
+	if [ $2 = 'upstream' ]; then
+		git remote add origin $3
 	fi
 else
-	git init
-	git add $PWD
-	git commit -m 'first commit'
+	git init && git add $PWD && git commit -m 'first commit'
 fi
